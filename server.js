@@ -8,9 +8,16 @@ app.use(bodyParser.urlencoded({ extended: true }));
 
 app.use(express.static('public'));
 
+app.use('/vendor', express.static(__dirname + '/bower_components'));
+
 
 app.get('/', function homepage(req, res) {
   res.sendFile(__dirname + '/views/index.html');
+});
+
+app.get('/templates/:name', function templates(req, res) {
+  var name = req.params.name;
+  res.sendFile(__dirname + '/views/templates/' + name + '.html');
 });
 
 var key = 'sfdugjby7k6cfxvpuyr5b6mkmvghwmr4';

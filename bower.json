@@ -1,0 +1,21 @@
+{
+  "name": "leaderboard",
+  "description": "desc",
+  "main": "server.js",
+  "authors": [
+    "14budig <nbudig@gmail.com>"
+  ],
+  "license": "ISC",
+  "homepage": "https://github.com/14budig/blizzard-app",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "angular": "^1.5.8",
+    "angular-route": "^1.5.8"
+  }
+}
