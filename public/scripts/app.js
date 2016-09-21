@@ -8,8 +8,14 @@ config.$inject = ['$routeProvider', '$locationProvider'];
 function config ($routeProvider, $locationProvider) {
   $routeProvider
     .when('/', {
-      templateUrl: '/templates/index',
-      controllerAs: 'indexCtrl',
-      controller: 'IndexController'
+      templateUrl: '/templates/ladder',
+      controllerAs: 'ladderCtrl',
+      controller: 'LadderController'
     });
+
+    $locationProvider.html5Mode({
+      enabled: true,
+      requireBase: false
+    });
+
 }

@@ -1,4 +1,5 @@
 var express = require('express');
+var request = require('request');
 var app = express();
 
 
@@ -22,8 +23,21 @@ app.get('/templates/:name', function templates(req, res) {
 
 var key = 'sfdugjby7k6cfxvpuyr5b6mkmvghwmr4';
 
+app.get('/api/ladder', function(req, res){
+  var url = 'https://us.api.battle.net/sc2/ladder/197921?locale=en_US&apikey=sfdugjby7k6cfxvpuyr5b6mkmvghwmr4';
+  request(url, function(err, response, body){
+    var data = JSON.parse(body);
+    res.json(data);
+  })
+});
 
+app.get('*', function homepage (req, res) {
+  res.sendFile(__dirname + '/views/index.html');
+});
 
 app.listen(process.env.PORT || 3000, function () {
   console.log('Express server is up and running on http://localhost:3000/');
 });
+
+
+//https://us.api.battle.net/sc2/ladder/197921?locale=en_US&apikey=sfdugjby7k6cfxvpuyr5b6mkmvghwmr4
