@@ -11,6 +11,10 @@ function config ($routeProvider, $locationProvider) {
       templateUrl: '/templates/ladder',
       controllerAs: 'ladderCtrl',
       controller: 'LadderController'
+    }).when('/profile/:id/:region/:name/', {
+      controllerAs: 'playersCtrl',
+      controller:'PlayersController',
+      templateUrl: '/templates/player'
     });
 
     $locationProvider.html5Mode({

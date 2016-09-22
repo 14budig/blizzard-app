@@ -29,5 +29,27 @@ function leaderboardService($http, $q){
       def.reject(self.ladder.error);
     }
   }
-  function getPlayer(){}
+  function getPlayer(id, region, name){
+    console.log('id: ',id);
+    console.log('region: ',region);
+    console.log('name: ',name);
+    var def = $q.defer();
+    var url = '/api/players/'+ id + '/' + region + '/' + name;
+    console.log('url: ', url)
+    $http({
+      url: url,
+      method:'GET'
+    }).then(getPlayerSuccess, function(error){
+      console.log(error);
+      self.player.error = {error: error};
+      def.reject(self.player.error);
+    });
+    console.log(def.promise);
+    return def.promise
+
+    function getPlayerSuccess(response){
+      self.player = response.data;
+      def.resolve(self.player);
+    }
+  }
 }
