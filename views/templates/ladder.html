@@ -1,7 +1,14 @@
-<h1>Starcraft 2 Grandmaster Rankings</h1>
 
-<div ng-repeat="player in ladderCtrl.players">
-  <p>
-    <a href="{{player.character.profilePath}}">{{ player.character.clanTag ? ('['+player.character.clanTag+']') : "" }}{{player.character.displayName}}</a>
-  </p>
+<h1 id="leaderboard-title">Starcraft 2 Grandmaster Leaderboard</h1>
+<div id="player-container" ng-hide="unloaded">
+  <div ng-repeat="player in ladderCtrl.players">
+    <h3 class="player-item">
+      <a href="{{player.character.profilePath}}">{{ player.character.clanTag ? ('['+player.character.clanTag+']') : "" }}{{player.character.displayName}}</a>
+    </h3>
+  </div>
+</div>
+
+<div class="center loading" ng-show="unloaded">
+  <h2>Loading, please stand by</h2>
+  <img src="/images/SiegeTank.gif" alt="Loading..." />
 </div>

@@ -30,9 +30,6 @@ function leaderboardService($http, $q){
     }
   }
   function getPlayer(id, region, name){
-    console.log('id: ',id);
-    console.log('region: ',region);
-    console.log('name: ',name);
     var def = $q.defer();
     var url = '/api/players/'+ id + '/' + region + '/' + name;
     console.log('url: ', url)
@@ -44,7 +41,6 @@ function leaderboardService($http, $q){
       self.player.error = {error: error};
       def.reject(self.player.error);
     });
-    console.log(def.promise);
     return def.promise
 
     function getPlayerSuccess(response){
