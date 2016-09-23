@@ -1,14 +1,55 @@
 
 <h1 id="leaderboard-title">Starcraft 2 Grandmaster Leaderboard</h1>
-<div id="player-container" ng-hide="unloaded">
-  <div ng-repeat="player in ladderCtrl.players">
-    <h3 class="player-item">
-      <a href="{{player.character.profilePath}}">{{ player.character.clanTag ? ('['+player.character.clanTag+']') : "" }}{{player.character.displayName}}</a>
-    </h3>
-  </div>
-</div>
+<br>
+<br>
+
+<table class=center id="ladder-table" ng-hide="unloaded">
+  <thead>
+    <th class="space">
+
+    </th>
+    <th>
+      Player
+    </th>
+    <th>
+      Favorite Race
+    </th>
+    <th>
+      Wins
+    </th>
+    <th>
+      Losses
+    </th>
+    <th>
+      Score
+    </th>
+
+  </thead>
+  <tbody id="player-container">
+    <tr ng-repeat="player in ladderCtrl.players">
+      <td class="space">
+
+      </td>
+      <td class="link">
+        <a href="{{player.character.profilePath}}">{{ player.character.clanTag ? ('['+player.character.clanTag+']') : "" }}{{player.character.displayName}}</a>
+      </td>
+      <td>
+        {{player.favoriteRaceP1}}
+      </td>
+      <td>
+        {{player.wins}}
+      </td>
+      <td>
+        {{player.losses}}
+      </td>
+      <td>
+        {{player.points}}
+      </td>
+    </tr>
+  </tbody>
+</table>
 
 <div class="center loading" ng-show="unloaded">
   <h2>Loading, please stand by</h2>
-  <img src="/images/SiegeTank.gif" alt="Loading..." />
+  <img src="/images/SiegeTank2.gif" alt="Loading..." />
 </div>

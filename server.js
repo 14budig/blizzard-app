@@ -40,6 +40,16 @@ app.get('/api/players/:id/:region/:name', function(req, res){
   });
 });
 
+app.get('/api/players/:id/:region/:name/matches', function(req, res){
+  console.log('player GET');
+  var url = 'https://us.api.battle.net/sc2/profile/'+req.params.id+'/'
+            +req.params.region+'/'+req.params.name +'/matches?locale=en_US&apikey=sfdugjby7k6cfxvpuyr5b6mkmvghwmr4';
+            console.log(url);
+  request(url,function(err, response, body){
+    res.send(body);
+  });
+});
+
 app.get('*', function homepage (req, res) {
   res.sendFile(__dirname + '/views/index.html');
 });

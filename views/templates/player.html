@@ -1,40 +1,73 @@
-<div ng-hide="unloaded">
-  <div id="picture-holder" class="top-div">
-    <!-- I know this looks ugly, but it's how Blizzard does this -->
+<div class="container">
+  <div ng-hide="unloaded">
+    <div id="picture-holder" class="top-div">
+      <!-- I know this looks ugly, but it's how Blizzard does this -->
 
 
-    <div id="portrait-frame"> 
-      <div class="portrait" style="background: url('{{playersCtrl.player.portrait.url}}')
-    {{playersCtrl.player.portrait.x}}px {{playersCtrl.player.portrait.y}}px no-repeat;
-    width: {{playersCtrl.player.portrait.w}}px;
-    height: {{playersCtrl.player.portrait.h}}px;"></div>
+      <div id="portrait-frame"> 
+        <div class="portrait" style="background: url('{{playersCtrl.player.portrait.url}}')
+      {{playersCtrl.player.portrait.x}}px {{playersCtrl.player.portrait.y}}px no-repeat;
+      width: {{playersCtrl.player.portrait.w}}px;
+      height: {{playersCtrl.player.portrait.h}}px;"></div>
 
-    </div>
-  </div>
-  <div id="name-holder" class="top-div">
-    <h1>{{playersCtrl.player.displayName}}</h1>
-    <h4>{{playersCtrl.player.clanName ? "Clan: " + playersCtrl.player.clanName : ""}}
-    </h4>
-  </div>
-  <br>
-  <br>
-  <br>
-
-  <div class="center text">
-    <p id="total-wins">Wins this season: {{playersCtrl.totalWins}}/{{playersCtrl.totalGames}}</p>
-  </div>
-  <div ng-cloak id="game-type-list">
-    <div class="center">
-      <h4>Wins by type:</h4>
-      <div class="game-type-card" ng-repeat="gameType in playersCtrl.player.season.stats">
-        <h1>{{gameType.type}}</h1>
-        <h5>{{gameType.wins}}/{{gameType.games}}</h5>
       </div>
     </div>
-  </div>
-</div>
+    <div id="name-holder" class="top-div">
+      <h1>{{playersCtrl.player.displayName}}</h1>
+      <h4>{{playersCtrl.player.clanName ? "Clan: " + playersCtrl.player.clanName : ""}}
+      </h4>
+    </div>
+    <br>
+    <br>
+    <br>
 
-<div class="center loading" ng-show="unloaded">
-  <h2>Loading, please stand by</h2>
-  <img src="/images/SiegeTank.gif" alt="Loading..." />
+    <div class="center text">
+      <p class="box-label">Wins this season: {{playersCtrl.totalWins}}/{{playersCtrl.totalGames}}</p>
+    </div>
+    <div ng-cloak id="game-type-list">
+      <div class="center">
+        <h4>Wins by type:</h4>
+        <div class="game-type-card" ng-repeat="gameType in playersCtrl.player.season.stats">
+          <h1>{{gameType.type}}</h1>
+          <h5>{{gameType.wins}}/{{gameType.games}}</h5>
+        </div>
+      </div>
+    </div>
+    <br>
+    <br>
+    <br>
+
+    <div class="center text">
+      <p class="box-label">Last 5 matches: </p>
+    </div>
+
+    <table  ng-cloak id="match-list">
+        <thead>
+          <th class="span-large">
+            Map Name
+          </th>
+          <th class="span-small">
+            Game Type
+          </th>
+          <th class="span-small">
+            Outcome
+          </th>
+        </thead>
+        <tbody>
+          <tr ng-repeat="match in playersCtrl.matches">
+            <td class="span-large">{{match.map}}</td>
+            <td class="span-small">{{match.type}}</td>
+            <td class="span-small">{{match.decision}}</td>
+          </tr>
+          <tr  ng-show="noMatches"><td class="error"><h4>An Error Has Occured</h4></td></tr>
+        </tbody>
+    </table>
+
+
+  </div>
+
+  <div class="center loading" ng-show="unloaded">
+    <h2>Loading, please stand by</h2>
+    <img src="/images/SiegeTank2.gif" alt="Loading..." />
+  </div>
 </div>

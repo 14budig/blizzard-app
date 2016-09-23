@@ -1,11 +1,17 @@
-#leaderboard-title{
-  text-align: center;
+html, body{
+  min-height: 100vh;
+  margin: 0;
+  background: url("/images/bg-repeat.jpg")  center top repeat-y;
 }
 
+#leaderboard-title{
+  text-align: center;
+    color: white;
+}
+
+
+
 #game-type-list{
-  padding-left: 5%;
-  padding-right: 5%;
-  padding-bottom: 5%;
   border-radius: 5px;
   width: 75%;
   margin: 0 auto;
@@ -13,6 +19,29 @@
   padding: 5px;
   padding-bottom: 15px;
   box-shadow: 0 0 1px 3px #000929 inset;
+}
+
+#match-list{
+  border-radius: 5px;
+  width: 75%;
+  margin: 0 auto;
+  background-color: #000d3e;
+  padding: 5px;
+  box-shadow: 0 0 1px 3px #000929 inset;
+}
+
+.span-large{
+  text-align: left;
+  width: 50%;
+  display: inline-block;
+  margin: 0;
+}
+
+.span-small{
+  text-align: right;
+  width: 25%;
+  display: inline-block;
+  margin: 0;
 }
 
 .center{
@@ -32,9 +61,10 @@
 }
 
 .loading{
-  color: gold;
-  background-color: black;
-  border-radius: 10px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
 }
 
 #profile-image{
@@ -51,9 +81,9 @@
 #portrait-frame{
   position: relative;
   z-index: 10;
-  left: 7px;
-  top: 4px;
-  left : -10px;
+  left: 0px;
+  top: 0;
+  left : 0px;
   height: 130px;
   width: 141px;
   background: url("/images/frame.png") no-repeat;
@@ -61,15 +91,23 @@
 }
 
 #picture-holder{
-height: 100px;
+height: 110px;
 width: 100px;
 display: inline-block;
-padding-right: 10px;
+margin: 0;
+background-color: #000d3e;
 }
 
 #name-holder{
+  margin-top: 2px;
   display:inline-block;
-  padding-left: 10px;
+  padding-right: 10px;
+  padding-left: 20px;
+  margin-left: -5px;
+  height: 110px;
+  background-color: #000d3e;
+  border-radius: 10px;
+  border: 1px solid #082b6f;
 }
 
 .top-div{
@@ -77,39 +115,36 @@ padding-right: 10px;
 }
 
 .content{
-    background-color: #071355;
-
+  margin:0;
+  border: 0;
+  padding:10px;
+  height: 100%;
   color: #83aed4;
 }
 
-html{
-    background-color: #071355;
-}
-body{
-    background-color: #071355;
 
+a{
+  color: #00D683;
 }
 
 a:hover{
   text-decoration: none;
-  color: #83aed4
+  color: white;
+  font-weight: 500;
 }
 
 .text{
   width: 75%;
 }
 
-#total-wins{
+.box-label{
   text-align: left;
 }
 
 #player-container{
-  margin: 20px;
-  margin-left: 45px;
-  margin-right: 45px;
+  margin: 0 auto;
   background-color: #020a3c;
   box-shadow: 0 0 1px 3px #000929 inset;
-  border-radius: 5px
 }
 
 .player-item{
@@ -119,9 +154,78 @@ a:hover{
   padding-top: 10px;
   padding-left: 10px;
   padding-right: 10px;
+  border: 1px solid grey;
 }
 
 .player-item:hover{
   color: #83aed4;
-  background-color: #020a3c;
+  background-color: #000525;
+}
+
+table{
+  border-collapse: collapse;
+  border: 0;
+  display: table;
+  border-color: grey;
+  border-radius: 5px
+}
+td {
+    padding: 10px;
+    border-bottom: 1px solid #00213e;
+    text-align: right;
+}
+.link{
+  text-align: left;
+}
+thead{
+  padding:10px;
+  border-bottom: 1px solid #00213e;
+    background-color: #000525;
+    border-top-right-radius: 5px;
+    border-top-left-radius: 5px;
+}
+th{
+  padding:10px;
+  border-bottom: 1px solid #00213e;
+
+}
+tr{
+    display: table-row;
+    vertical-align: inherit;
+    margin: 0;
+    padding: 0;
+    border: 0;
+    outline: 0;
+}
+tr:last-child{
+  border-bottom-left-radius: 5px;
+  border-bottom-right-radius: 5px;
+}
+#ladder-table tr:hover{
+  background-color: #000525;
+}
+
+.space{
+  width:20px;
+}
+
+.error{
+  width: 100%;
+  text-align: center;
+}
+
+@media(max-width: 500px){
+  #portrait-frame{
+    left: 30px;
+  }
+  #picture-holder{
+    margin-left: -55px;
+    padding: -70px;
+    width: auto;
+  }
+  #name-holder{
+    padding-left: 0;
+    margin-right: -50px;
+  }
+
 }

@@ -6,8 +6,10 @@ function leaderboardService($http, $q){
   var self = this;
   self.ladder = {};
   self.player = {};
+  self.matches = {};
   self.getLadder = getLadder;
   self.getPlayer = getPlayer;
+  self.getMatches = getMatches;
 
   function getLadder(){
     var def = $q.defer();
@@ -32,7 +34,7 @@ function leaderboardService($http, $q){
   function getPlayer(id, region, name){
     var def = $q.defer();
     var url = '/api/players/'+ id + '/' + region + '/' + name;
-    console.log('url: ', url)
+    console.log('url: ', url);
     $http({
       url: url,
       method:'GET'
@@ -46,6 +48,24 @@ function leaderboardService($http, $q){
     function getPlayerSuccess(response){
       self.player = response.data;
       def.resolve(self.player);
+    }
+  }
+  function getMatches(id, region, name){
+    var def = $q.defer();
+    var url = '/api/players/'+ id + '/' + region + '/' + name +'/matches';
+    console.log('url: ', url);
+    $http({
+      url: url,
+      method:'GET'
+    }).then(getMatchesSuccess, function(error){
+      console.log(error);
+      self.player.error = {error: error};
+      def.reject(self.matches.error);
+    });
+    return def.promise;
+    function getMatchesSuccess(response){
+      self.matches = response.data;
+      def.resolve(self.matches);
     }
   }
 }
