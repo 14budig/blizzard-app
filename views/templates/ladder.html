@@ -3,6 +3,13 @@
 <br>
 <br>
 
+<div class="center" ng-hide="unloaded">
+  <input type="text" class="" ng-model="searchText.character.clanTag" placeholder="Filter by Clan Tag">
+  <input type="text" class="" ng-model="searchText.character.displayName" placeholder="Filter by Player Name">
+  <input type="text" class="" ng-model="searchText.favoriteRaceP1" placeholder="Filter by Race">
+
+</div>
+
 <table class=center id="ladder-table" ng-hide="unloaded">
   <thead>
     <th class="space">
@@ -26,26 +33,7 @@
 
   </thead>
   <tbody id="player-container">
-    <tr>
-      <td class=space>
-
-      </td>
-      <td>
-        <input type="text" class="form-control" ng-model="searchText.character.displayName" placeholder="Filter by Player Name">
-      </td>
-      <td>
-        <input type="text" class="form-control" ng-model="searchText.favoriteRaceP1" placeholder="Filter by Race">
-      </td>
-      <td>
-
-      </td>
-      <td>
-
-      </td>
-      <td>
-
-      </td>
-    </tr>
+    
     <tr ng-repeat="player in ladderCtrl.players | filter: searchText">
       <td class="space">
 

@@ -227,7 +227,12 @@ tr:last-child{
     padding-left: 0;
     margin-right: -50px;
   }
+  input{
+    width:100%;
+  }
 
 }
-#search{
+input{
+  border-radius: 3px;
+  margin: 5px;
 }
