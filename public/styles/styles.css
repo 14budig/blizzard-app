@@ -235,4 +235,5 @@ tr:last-child{
 input{
   border-radius: 3px;
   margin: 5px;
+  color: black;
 }
