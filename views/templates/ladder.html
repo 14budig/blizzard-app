@@ -4,8 +4,8 @@
 <br>
 
 <div class="center" ng-hide="unloaded">
-  <input type="text" class="" ng-model="searchText.character.clanTag" placeholder="Filter by Clan Tag">
   <input type="text" class="" ng-model="searchText.character.displayName" placeholder="Filter by Player Name">
+  <input type="text" class="" ng-model="searchText.character.clanTag" placeholder="Filter by Clan Tag">
   <input type="text" class="" ng-model="searchText.favoriteRaceP1" placeholder="Filter by Race">
 
 </div>
@@ -33,7 +33,7 @@
 
   </thead>
   <tbody id="player-container">
-    
+
     <tr ng-repeat="player in ladderCtrl.players | filter: searchText">
       <td class="space">
 
