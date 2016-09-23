@@ -26,7 +26,27 @@
 
   </thead>
   <tbody id="player-container">
-    <tr ng-repeat="player in ladderCtrl.players">
+    <tr>
+      <td class=space>
+
+      </td>
+      <td>
+        <input type="text" class="form-control" ng-model="searchText.character.displayName" placeholder="Filter by Player Name">
+      </td>
+      <td>
+        <input type="text" class="form-control" ng-model="searchText.favoriteRaceP1" placeholder="Filter by Race">
+      </td>
+      <td>
+
+      </td>
+      <td>
+
+      </td>
+      <td>
+
+      </td>
+    </tr>
+    <tr ng-repeat="player in ladderCtrl.players | filter: searchText">
       <td class="space">
 
       </td>
